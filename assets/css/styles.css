@@ -60,6 +60,9 @@ h1, h2, h3 { margin: 0; font-weight: 400; text-wrap: balance; }
 /* Their logo, recolored to --paper (original black version is in private/) */
 .logo { line-height: 0; }
 .logo img { display: block; width: 100%; max-width: 34rem; height: auto; }
+@media (min-width: 761px) {
+  .logo { margin-top: -1rem; margin-bottom: 1.5rem; }
+}
 
 /* Storefront */
 .front .wrap {
