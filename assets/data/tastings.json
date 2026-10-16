@@ -1,0 +1,19 @@
+{
+  "_howto": "Add each tasting at the top. date is YYYY-MM-DD. Times are 24-hour, Baltimore time. The site shows the next upcoming one; past ones show under 'Lately'.",
+  "tastings": [
+    {
+      "date": "2026-10-15",
+      "start": "16:00",
+      "end": "19:00",
+      "with": "Global Wine & Spirits",
+      "kind": "wine",
+      "pouring": "Camelopard Cabernet Sauvignon & Sauvignon Blanc · Lobetia Cabernet Sauvignon & Petit Verdot"
+    },
+    { "date": "2026-10-09", "start": "16:00", "end": "19:00", "with": "Peabody", "kind": "beer", "pouring": "Metro Haze IPA, Farm Lite Lime Pils, Carbon Vault Stout, High and Dry Hefe, Ankh Amber" },
+    { "date": "2026-09-25", "start": "16:00", "end": "19:00", "with": "Vine Connection", "kind": "wine & sake", "pouring": "Casa Silva Sauvignon Gris & Carmenere, La Carraia Orvieto & Sangiovese, Casarena Malbec, Night Swim & Snow Maiden sake" },
+    { "date": "2026-09-11", "start": "16:00", "end": "19:00", "with": "Kenco", "kind": "wine", "pouring": "" },
+    { "date": "2026-09-04", "start": "16:00", "end": "19:00", "with": "Mal Bien", "kind": "mezcal", "pouring": "" },
+    { "date": "2026-08-28", "start": "16:00", "end": "19:00", "with": "Gray Wolf", "kind": "spirits", "pouring": "" },
+    { "date": "2026-08-14", "start": "16:00", "end": "19:00", "with": "Black Flag", "kind": "beer", "pouring": "" }
+  ]
+}

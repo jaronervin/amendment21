@@ -1,0 +1,200 @@
+/* Amendment 21 — corner liquor store front.
+   Painted window letters on black, paper signs taped up, a photocopied flyer.
+   Colors and fonts are all here at the top. */
+:root {
+  --black: #0d0c0b;
+  --paper: #e9e4d8;
+  --ink: #141312;
+  --red: #d8261c;
+  --yellow: #ffd21a;
+  --pink: #ff6fae;
+  --grey: #8f8b84;
+  --rule: #3a3834;
+  --sign: "Anton", Impact, "Arial Narrow Bold", sans-serif;
+  --dirt: "Rubik Dirt", "Anton", Impact, sans-serif;
+  --type: "Courier Prime", "Courier New", Courier, monospace;
+  color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--black);
+  color: var(--paper);
+  font: 400 1.02rem/1.55 var(--type);
+  overflow-x: hidden;
+  padding-top: env(safe-area-inset-top, 0px);
+  padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+/* Photocopy grain over everything */
+body::after {
+  content: ""; position: fixed; inset: 0; pointer-events: none; z-index: 50;
+  opacity: 0.13; mix-blend-mode: screen;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='220' height='220'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 1.4 -0.35'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+}
+img { max-width: 100%; }
+[hidden] { display: none !important; }
+.wrap {
+  max-width: 66rem;
+  margin: 0 auto;
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+}
+a { color: inherit; }
+a:focus-visible, button:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
+h1, h2, h3 { margin: 0; font-weight: 400; text-wrap: balance; }
+
+/* Top strip */
+.strip { background: var(--yellow); color: var(--ink); }
+.strip .wrap {
+  display: flex; flex-wrap: wrap; gap: 0.3rem 1.5rem; justify-content: space-between; align-items: center;
+  padding-block: 0.45rem;
+  font: 700 0.9rem/1.3 var(--type); text-transform: uppercase; letter-spacing: 0.04em;
+}
+.status { display: inline-flex; align-items: center; gap: 0.5rem; }
+.dot { width: 0.7rem; height: 0.7rem; border-radius: 50%; background: var(--ink); }
+.status[data-open="true"] .dot { background: #1f8a3a; }
+.status[data-open="false"] .dot { background: var(--red); }
+
+/* Wordmark, after their logo: stripes into a star over a slanted 21 */
+.mark { display: inline-grid; grid-template-columns: auto auto; align-items: end; gap: 0 0.06em; line-height: 0.8; }
+.mark .word { font: 400 1em/0.85 var(--sign); text-transform: uppercase; position: relative; }
+.mark .word::before {
+  content: ""; position: absolute; left: 0; right: 0.1em; bottom: 100%; margin-bottom: 0.08em;
+  height: 0.42em;
+  background: repeating-linear-gradient(to bottom, var(--paper) 0 0.055em, transparent 0.055em 0.105em);
+}
+.mark .num { position: relative; font: 400 1.5em/0.8 var(--sign); display: inline-block; transform: skewX(-12deg); }
+.mark .num svg { position: absolute; width: 0.42em; height: 0.42em; left: 0.04em; bottom: 100%; margin-bottom: -0.02em; transform: skewX(12deg); fill: var(--paper); }
+
+/* Storefront */
+.front .wrap {
+  padding-block: clamp(2.5rem, 6vw, 4.5rem) clamp(2rem, 5vw, 3rem);
+  display: grid; gap: 2rem;
+  grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr);
+  align-items: center;
+}
+.window { display: grid; gap: 1.6rem; min-width: 0; }
+.window h1 { font-size: clamp(2.8rem, 10vw, 6.8rem); padding-top: 0.5em; }
+.painted {
+  margin: 0;
+  font: 400 clamp(3rem, 11vw, 7rem)/0.86 var(--dirt);
+  text-transform: uppercase;
+  display: grid;
+}
+.painted span:nth-child(1) { color: var(--yellow); }
+.painted span:nth-child(2) { color: var(--paper); }
+.painted span:nth-child(3) { color: var(--red); }
+.tagline { margin: 0; font: 700 1.05rem/1.4 var(--type); text-transform: uppercase; letter-spacing: 0.03em; color: var(--grey); }
+.btns { display: flex; flex-wrap: wrap; gap: 0.75rem; }
+.btn {
+  display: inline-block;
+  padding: 0.75rem 1.1rem 0.6rem;
+  font: 400 1.25rem/1 var(--sign); text-transform: uppercase; letter-spacing: 0.04em;
+  text-decoration: none;
+  background: var(--red); color: var(--paper);
+}
+.btn.alt { background: transparent; box-shadow: inset 0 0 0 3px var(--paper); }
+.btn:hover { background: var(--yellow); color: var(--ink); box-shadow: none; }
+
+/* Paper signs taped up */
+.paper {
+  position: relative;
+  background: var(--paper); color: var(--ink);
+  padding: 1.6rem 1.4rem 1.3rem;
+  box-shadow: 4px 6px 0 rgba(0, 0, 0, 0.6);
+  clip-path: polygon(0 1%, 4% 0, 30% 1.2%, 58% 0, 83% 1%, 100% 0, 99.4% 30%, 100% 62%, 99.2% 100%, 70% 99%, 41% 100%, 12% 99.2%, 0 100%, 0.7% 64%, 0 33%);
+  min-width: 0;
+}
+.tape { position: relative; min-width: 0; }
+.tape::before, .tape::after {
+  content: ""; position: absolute; z-index: 2; width: 5.5rem; height: 1.6rem;
+  background: rgba(233, 228, 216, 0.55); top: -0.7rem;
+}
+.tape::before { left: 1.2rem; transform: rotate(-6deg); }
+.tape::after { right: 1.2rem; transform: rotate(5deg); }
+.tilt-l { transform: rotate(-1.4deg); }
+.tilt-r { transform: rotate(1.1deg); }
+.paper h2 { font: 400 2.6rem/0.9 var(--sign); text-transform: uppercase; margin-bottom: 0.9rem; }
+.hours { width: 100%; border-collapse: collapse; font: 700 1.05rem/1.2 var(--type); font-variant-numeric: tabular-nums; }
+.hours th, .hours td { text-align: left; padding: 0.55rem 0; border-bottom: 2px dashed rgba(20, 19, 18, 0.35); text-transform: uppercase; }
+.hours td { text-align: right; }
+.hours tr:last-child th, .hours tr:last-child td { border-bottom: 0; }
+.hours tr.today th, .hours tr.today td { color: var(--red); }
+.closed { color: var(--red); }
+.scrawl { margin: 0.9rem 0 0; font: 400 0.95rem/1.3 var(--type); }
+
+/* Sections */
+section > .wrap { padding-block: clamp(2.5rem, 6vw, 4rem); }
+.big { font: 400 clamp(2.6rem, 8vw, 4.6rem)/0.9 var(--sign); text-transform: uppercase; }
+.big .y { color: var(--yellow); }
+.big .r { color: var(--red); }
+
+/* Tastings: a photocopied flyer next to a list */
+.tastings .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.5rem; align-items: start; }
+.tastings .intro { display: grid; gap: 1rem; min-width: 0; }
+.tastings .intro p { margin: 0; max-width: 40ch; }
+.flyer {
+  background: var(--black);
+  border: 3px solid var(--paper);
+  padding: 1.4rem;
+  display: grid; gap: 0.6rem;
+  text-align: center;
+  min-width: 0;
+}
+.flyer .k { font: 400 1.3rem/1 var(--sign); text-transform: uppercase; letter-spacing: 0.06em; color: var(--grey); }
+.flyer .who { font: 400 clamp(2rem, 6vw, 2.8rem)/0.95 var(--sign); text-transform: uppercase; color: var(--yellow); }
+.flyer .when { font: 400 clamp(1.8rem, 5vw, 2.4rem)/1 var(--sign); text-transform: uppercase; color: var(--pink); }
+.flyer .pour { margin: 0; font-size: 0.92rem; }
+.flyer .addr { font: 400 1.1rem/1.1 var(--sign); letter-spacing: 0.03em; color: var(--paper); border-top: 1px solid var(--grey); padding-top: 0.7rem; text-decoration: none; overflow-wrap: anywhere; }
+.past { list-style: none; margin: 0.5rem 0 0; padding: 0; display: grid; }
+.past li { display: flex; gap: 1rem; padding: 0.4rem 0; border-bottom: 1px dashed var(--rule); }
+.past .d { color: var(--grey); width: 4.2rem; flex: none; font-variant-numeric: tabular-nums; }
+.past-k { margin: 0.6rem 0 0; font: 700 0.85rem/1 var(--type); text-transform: uppercase; letter-spacing: 0.1em; color: var(--grey); }
+
+/* Shelves */
+.shelves { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin-top: 1.8rem; }
+.shelf { border-top: 6px solid var(--paper); padding-top: 0.9rem; min-width: 0; }
+.shelf h3 { font: 400 2.6rem/0.9 var(--sign); text-transform: uppercase; margin-bottom: 0.5rem; }
+.shelf:nth-child(1) h3 { color: var(--yellow); }
+.shelf:nth-child(3) h3 { color: var(--red); }
+.shelf p { margin: 0; }
+
+/* The quote, painted across the wall */
+.repeal { background: var(--red); color: var(--paper); }
+.repeal .wrap { padding-block: clamp(2rem, 5vw, 3.2rem); }
+.repeal blockquote {
+  margin: 0;
+  font: 400 clamp(1.7rem, 4.6vw, 3rem)/1.02 var(--sign);
+  text-transform: uppercase;
+  max-width: 24ch;
+}
+.repeal cite { display: block; margin-top: 0.9rem; font: 700 0.85rem/1 var(--type); font-style: normal; letter-spacing: 0.12em; }
+
+/* Find us */
+.find .wrap { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 2.5rem; align-items: start; }
+.find dl { margin: 1.4rem 0 0; display: grid; gap: 1rem; }
+.find dt { font: 700 0.8rem/1 var(--type); letter-spacing: 0.12em; text-transform: uppercase; color: var(--grey); margin-bottom: 0.3rem; }
+.find dd { margin: 0; font: 400 1.6rem/1.1 var(--sign); letter-spacing: 0.02em; overflow-wrap: anywhere; }
+.find dd.small { font: 700 1.05rem/1.3 var(--type); }
+.id-sign { text-align: center; }
+.id-sign h2 { font-size: clamp(2.6rem, 7vw, 3.6rem); margin-bottom: 0.4rem; }
+.id-sign h2 .r { color: var(--red); }
+.id-sign p { margin: 0; font-weight: 700; text-transform: uppercase; }
+.since { margin-top: 1.4rem; font: 700 0.95rem/1.4 var(--type); text-transform: uppercase; letter-spacing: 0.04em; color: var(--grey); text-align: center; }
+
+footer.site { border-top: 1px solid #2a2926; }
+footer.site .wrap {
+  padding-block: 1.6rem;
+  display: flex; flex-wrap: wrap; gap: 0.5rem 2rem; justify-content: space-between;
+  font: 700 0.85rem/1.4 var(--type); text-transform: uppercase; color: var(--grey);
+}
+
+@media (max-width: 760px) {
+  .front .wrap, .tastings .wrap, .find .wrap { grid-template-columns: minmax(0, 1fr); }
+  .shelves { grid-template-columns: minmax(0, 1fr); }
+}
+@media (prefers-reduced-motion: no-preference) {
+  .btn { transition: background-color .12s, color .12s; }
+}
