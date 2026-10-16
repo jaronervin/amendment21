@@ -23,8 +23,7 @@ body {
   background: var(--black);
   color: var(--paper);
   font: 400 1.02rem/1.55 var(--type);
-  overflow-x: hidden;
-  padding-top: env(safe-area-inset-top, 0px);
+  overflow-x: clip;
   padding-bottom: env(safe-area-inset-bottom, 0px);
 }
 /* Photocopy grain over everything */
@@ -45,8 +44,13 @@ a { color: inherit; }
 a:focus-visible, button:focus-visible { outline: 3px solid var(--yellow); outline-offset: 3px; }
 h1, h2, h3 { margin: 0; font-weight: 400; text-wrap: balance; }
 
-/* Top strip */
-.strip { background: var(--yellow); color: var(--ink); }
+/* Top strip, stays pinned while the page scrolls. Its top padding clears a phone's notch. */
+.strip {
+  position: sticky; top: 0; z-index: 40;
+  background: var(--yellow); color: var(--ink);
+  padding-top: env(safe-area-inset-top, 0px);
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.35);
+}
 .strip .wrap {
   display: flex; flex-wrap: wrap; gap: 0.3rem 1.5rem; justify-content: space-between; align-items: center;
   padding-block: 0.45rem;
