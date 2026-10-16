@@ -1,7 +1,7 @@
 (function () {
   // Store hours in minutes after midnight, Baltimore time. Index = day of week (0 = Sunday).
   // Keep in sync with the hours sign in index.html and the Google data in its <head>.
-  var HOURS = [null, [660, 1320], [660, 1320], [660, 1320], [660, 1320], [660, 1440], [660, 1440]];
+  var HOURS = [null, [600, 1440], [600, 1440], [600, 1440], [600, 1440], [600, 1440], [600, 1440]];
   var DAY_NAMES = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
   var DAY_SHORT = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
   var MONTHS = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
