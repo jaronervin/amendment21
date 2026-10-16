@@ -57,16 +57,9 @@ h1, h2, h3 { margin: 0; font-weight: 400; text-wrap: balance; }
 .status[data-open="true"] .dot { background: #1f8a3a; }
 .status[data-open="false"] .dot { background: var(--red); }
 
-/* Wordmark, after their logo: stripes into a star over a slanted 21 */
-.mark { display: inline-grid; grid-template-columns: auto auto; align-items: end; gap: 0 0.06em; line-height: 0.8; }
-.mark .word { font: 400 1em/0.85 var(--sign); text-transform: uppercase; position: relative; }
-.mark .word::before {
-  content: ""; position: absolute; left: 0; right: 0.1em; bottom: 100%; margin-bottom: 0.08em;
-  height: 0.42em;
-  background: repeating-linear-gradient(to bottom, var(--paper) 0 0.055em, transparent 0.055em 0.105em);
-}
-.mark .num { position: relative; font: 400 1.5em/0.8 var(--sign); display: inline-block; transform: skewX(-12deg); }
-.mark .num svg { position: absolute; width: 0.42em; height: 0.42em; left: 0.04em; bottom: 100%; margin-bottom: -0.02em; transform: skewX(12deg); fill: var(--paper); }
+/* Their logo, recolored to --paper (original black version is in private/) */
+.logo { line-height: 0; }
+.logo img { display: block; width: 100%; max-width: 34rem; height: auto; }
 
 /* Storefront */
 .front .wrap {
@@ -76,7 +69,6 @@ h1, h2, h3 { margin: 0; font-weight: 400; text-wrap: balance; }
   align-items: center;
 }
 .window { display: grid; gap: 1.6rem; min-width: 0; }
-.window h1 { font-size: clamp(2.8rem, 10vw, 6.8rem); padding-top: 0.5em; }
 .painted {
   margin: 0;
   font: 400 clamp(3rem, 11vw, 7rem)/0.86 var(--dirt);
